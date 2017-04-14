@@ -7,6 +7,37 @@ require ::File.expand_path('../config/environments/init', __FILE__)
 # Require all ActiveSupport's class and extensions
 require 'active_support/core_ext'
 
+desc "For testing"
+task :populate_urls do
+	require 'csv'
+	 require "activerecord-import/base"
+	#i.e. converts to base 36
+  def convert_to_letters(n)
+    result = []
+    letters = ("0".."9").to_a + ("a".."z").to_a
+    new_base = letters.length # = 36
+    until n == 0 do
+      thirty_sixes = n / new_base
+      ones = n - thirty_sixes * new_base
+      n = thirty_sixes
+      result << letters[ones]
+    end
+    result.reverse.join
+  end
+
+	Url.transaction do
+		i = 0
+		urls = []
+		CSV.foreach("db/urls.csv") do |row|
+			row[0] = row[0][1..-2]
+			row[1] = convert_to_letters(i + 1679616)
+			urls << row
+			i += 1
+		end
+	  Url.import [:original_url, :shortened_url], urls, validate: false
+	end
+end
+
 namespace :generate do
 	desc "Create empty model spec in spec, e.g., rake generate:spec NAME=test_name"
 	task :spec do

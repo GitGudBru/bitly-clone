@@ -1,22 +1,22 @@
-
- #    #generate a string of 5 random alphanumeric characters
- #    str = ""
- #    characters = ("a".."z").to_a + ("0".."9").to_a
- #    5.times do
- #     str = characters.sample + str
- #    end
- #    shortened_url = str
- #    p shortened_url
- #
-
 class Url < ActiveRecord::Base
-  validates :original_url, presence: true
-  #uniqueness: true
-  before_create :shorten #. :count
+   validates :original_url, :presence => true #:uniqueness => true     #<=== take out uniqueness
+   before_create :shorten
+ 
+   def shorten
+     #generate a string of 5 random alphanumeric characters
+     str = ""
+     characters = ("a".."z").to_a + ("0".."9").to_a
 
-  def shorten 
-  #blabalblablablablablabalblablabalabl
-  	str = 5.times.map { ['0'..'9', 'a'..'z', 'A'..'Z'].sample }.join
-  self.shortened_url = str
-  end
+     7.times do
+       str += characters.sample
+     end
+     self.shortened_url = str
+   end
+
+   	def is_url_valid
+		unless self.long_url.starts_with?("http://", "https://")
+			errors.add(:long_url, "invalid format")
+		end
+
+ end
 end

@@ -1,0 +1,127 @@
+table {
+position: absolute;
+bottom:15px;	
+font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+width: 100%;
+border-collapse:
+collapse; border-spacing: 0;
+}
+
+td, th {
+border: 0px solid transparent; /* No more visible border */
+height: 40px;
+transition: all 0.3s; /* Simple transition for hover effect */
+}
+
+th {
+	color: #FFFFFF;
+background: #404040; /* Darken header a bit */
+font-weight: bold;
+}
+
+td {
+background: #FAFAFA;
+text-align: center;
+}
+
+tr td:hover { background: #666; color: #FFF; } /* Hover cell effect! */
+
+
+/****************************************************************************************************************/
+
+
+#background {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    z-index: -1; /* Ensure div tag stays behind content; -999 might work, too. */
+}
+
+.stretch {
+    width:100%;
+    height:100%;
+}
+
+.link {
+ color : #4d4d4d; text-decoration : none; font-weight: bold;
+}
+
+.destiny {
+	position: fixed;
+margin-left: 1cm;
+top: 0.7cm;
+}
+
+/****************************************************************************************************************/
+
+#a {
+position: absolute;
+    top: 30%;
+    left: 24%;
+    transform: translateX(-70%) translateY(-50%);
+font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+	font-size: 45px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: 100;
+	line-height: 1.5714px;
+    color: #FFF
+}
+
+#b {
+ position: absolute;
+    top: 40%;
+    left: 25.8%;
+    transform: translateX(-50%) translateY(-50%);
+ font-family: Futura;
+    font-size: 45px;
+    color: #FFF
+
+}
+
+h4 {
+	position: absolute;
+	top: 0.7cm;
+ font-family: Sans-serif;
+ margin-left: 70%;
+ color: white;
+ word-spacing: 65px;
+
+}
+
+/****************************************************************************************************************/
+
+
+form {
+	position: absolute;
+	top: 50%;
+    left: 9%;
+   
+
+}
+
+
+input[type=text] {
+  margin: 10px;
+  padding: 10px;
+  width: 15cm;
+  font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+}
+
+input[type=submit] {
+background-color: #444444;
+font-size: 15px;
+color:white;
+font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+}
+
+input:placeholder-shown {
+  border: 0px solid black
+
+}
+
+
+
+

@@ -1,19 +1,41 @@
+<div id="background">
+           <!--  <img src="https://s-media-cache-ak0.pinimg.com/originals/57/6e/18/576e1825ab0a1eb6b47c9a94e8c41534.jpg" class="stretch" alt="" /> -->
+            <img src="https://www.beautycolorcode.com/292c2f-2880x1800.png" alt="" />
+        </div>
+
+<img src="http://vignette4.wikia.nocookie.net/destinypedia/images/1/11/IronBannerLogo.png/revision/latest?cb=20150317192602" class="destiny"alt="destiny" width=5%>
+
+<h4> Work About Contact</h4>
+
+<p id="a">SWITCH OFF</p>
+<h1 id="b">HANZO YOU PLEB.</h1>
+
+
 <form action="/urls" method="POST">
-   <h1> Enter URL: </h1>
-    <input type="text" name="long_url">
-    <input type="submit" value="Submit">
+  <!--  Enter URL: -->
+   <input type="text" name="long_url"  placeholder="Enter URL pls">
+   <input type="submit" value="Click">
  </form>
 
-<!--  <h1>bitly clone</h1>
-<h3>Shorten links. Keep track of its click count.</h3>
-<form id="main-form" action="urls" method="POST">
-  <input type="text" name="long_url">
-  <input type="submit" value="Shorten!">
-</form>
-<h3>How to use?</h3>
-<ol>
-  <li>Insert link</li>
-  <li>Get short link in return</li>
-  <li>???</li>
-  <li>Profit!</li>
-</ol> -->
+
+  <p><%= @error %></p>
+
+
+
+<table>
+<tr>
+  <th>Long URL</th>
+  <th>Not-So-Short URL</th> 
+  </tr>
+
+<% @urls.each do |x| %>
+
+<tr>
+<td><%= x.original_url %></td>
+<td><a href=http://localhost:9393/<%= x.shortened_url%> class="link"> http://localhost:9393/<%= x.shortened_url%></a></td>
+<!-- <hr> -->
+</tr>
+
+ <% end %>
+
+
